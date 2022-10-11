@@ -71,7 +71,6 @@ sns.boxplot(x = 'feat', y = 'value', data = df_tot1, hue = 'Type', order = ['Thr
 handles, labels = axs.get_legend_handles_labels()
 plt.legend(handles=handles[0:], labels=labels[0:], fontsize = 16)
 plt.xlabel('')
-plt.xlabel('')
 plt.xticks([0, 1], ['Thr11-Cys14','Thr18-Cys21'], fontsize = 28)
 plt.yticks(fontsize = 18)
 plt.ylabel('Probability of ring formation',fontsize = 28)
