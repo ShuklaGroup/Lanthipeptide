@@ -10,7 +10,7 @@ from matplotlib import rc
 import sys
 
 threshold = 0.45
-"""
+
 variants = ['WT','Variant1','Variant2']
 for elem in variants:
     df = pd.DataFrame(columns = ['Thr11-Cys14','Thr11-Cys21','Cys14-Thr18','Thr18-Cys21'])
@@ -41,7 +41,7 @@ for elem in variants:
         feat4_w =  np.dot(feat4,weights) #distance between Thr18 and Cys21
         df.loc[j] = [feat1_w, feat2_w, feat3_w, feat4_w]
     pickle.dump(df, open(elem + '_four_feature_bootstrapping.pkl', 'wb'))
-"""
+
 df_WT = pickle.load(open('WT_four_feature_bootstrapping.pkl','rb'))
 df_Variant1 = pickle.load(open('Variant1_four_feature_bootstrapping.pkl','rb'))
 df_Variant2 = pickle.load(open('Variant2_four_feature_bootstrapping.pkl','rb'))
