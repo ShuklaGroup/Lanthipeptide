@@ -1,24 +1,16 @@
 import numpy as np
 import glob
 import mdtraj as md
-import math
-import matplotlib.pyplot as plt
-import mdtraj as md
 import os
-from numpy import linalg as LA
 import pickle
 import pyemma
-import seaborn as sns
 import matplotlib.pyplot as plt
-import matplotlib as mpl
-from matplotlib import rc
-import random
 
 cluster_number = 150
 all_eigen_ref = []
 
 for j in range(200): 
-     msm = pickle.load(open("/home/xmi4/RippsProject/procA33_WT/analysis/bootstrapping_ticdim/bt_80_" + str(j) +"_msm.pkl",'rb')) 
+     msm = pickle.load(open("Pcn3.3/WT/bootstrapping/bt_80_" + str(j) +"_msm.pkl",'rb')) 
      eigen_ref = msm.eigenvectors_left()[0] 
      if len(eigen_ref) == cluster_number: 
          all_eigen_ref.append(eigen_ref) 
