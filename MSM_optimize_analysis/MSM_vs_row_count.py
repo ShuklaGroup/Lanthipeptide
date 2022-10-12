@@ -1,27 +1,18 @@
 import numpy as np
 import glob
 import mdtraj as md
-import math
-import matplotlib.pyplot as plt
-import mdtraj as md
 import os
-from numpy import linalg as LA
 import pickle
 import pyemma
 import seaborn as sns
 import matplotlib.pyplot as plt
-import matplotlib as mpl
-from matplotlib import rc
-import random
-hfont = {'fontname':'Helvetica'}
-#rc('text', usetex=True)
-#rc('font',**{'family':'sans-serif','sans-serif':['Helvetica']})
+
+
 cluster_number = 150
 lag_time = 250
-#tic_vc = 75
 tic_dim = 10
 msm_lag_time = 200
-file = "./MSM_ticdim/MSM-"+'procA3.3WT-cluster_kmeans_'+ 'C_'+str(cluster_number)+'_lt_' + str(lag_time)+ '_ticdim_' + str(tic_dim) + ".pkl"
+file = "./MSM/MSM-"+'procA3.3WT-cluster_kmeans_'+ 'C_'+str(cluster_number)+'_lt_' + str(lag_time)+ '_ticdim_' + str(tic_dim) + ".pkl"
 
 dtrajs_ref = pickle.load(open(file,'rb'))
 dtrajs_com = np.concatenate(dtrajs_ref)
@@ -29,8 +20,6 @@ dtrajs_com = np.concatenate(dtrajs_ref)
 msm_ref = pickle.load(open("./MSM_ticdim/MSM-"+'procA3.3WT-MSM_'+ 'C_'+str(cluster_number)+'_lt_' + str(lag_time)+'_ticdim_'+ str(tic_dim) +".pkl",'rb'))
 eigen_ref = msm_ref.eigenvectors_left()[0]
 
-#print(msm_ref.active_set)
-#eigen = np.zeros([200,len(msm_ref.active_set)])
 total_pop = 0
 for i,index in enumerate(msm_ref.active_set):
     total_pop = total_pop + np.count_nonzero(dtrajs_com==index)
