@@ -60,8 +60,8 @@ df_WT = df_WT.sort_values('Thr11-Cys14')
 df_Variant1 = df_Variant1.sort_values('Thr11-Cys14')
 df_Variant2 = df_Variant2.sort_values('Thr11-Cys14')
 
-df_tot = df_WT[50:150].append(df_Variant1[50:150], ignore_index = True)
-df_tot = df_tot.append(df_Variant2[50:150], ignore_index = True)
+df_tot = df_WT.append(df_Variant1, ignore_index = True)
+df_tot = df_tot.append(df_Variant2, ignore_index = True)
 df_tot1 = pd.melt(df_tot, id_vars = ['Type'], value_vars=['Thr11-Cys14','Thr18-Cys21'], var_name = 'feat')
 
 fig, axs = plt.subplots(1,1,figsize=(10,7))
